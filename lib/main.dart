@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hawkvirtualfood_proyecto/ui/cliente/splash_screen.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Repositorio prueba funcionamiento'),
+      //home: MyHomePage(title: 'Repositorio prueba funcionamiento'),
+      home: splashScrren(),
     );
   }
 }
