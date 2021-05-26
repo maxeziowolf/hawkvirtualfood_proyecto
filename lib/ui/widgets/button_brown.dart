@@ -3,13 +3,14 @@ import 'package:hawkvirtualfood_proyecto/ui/cliente/home.dart';
 
 class ButtonBrown extends StatelessWidget {
   String buttonText;
+  Function accion;
 
-  ButtonBrown(this.buttonText);
+  ButtonBrown(this.buttonText, this.accion);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=>Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home())),
+      onTap: accion,
       child: Container(
         height: 40,
         width: 240,

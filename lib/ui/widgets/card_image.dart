@@ -12,7 +12,12 @@ class CardImage extends StatelessWidget {
     final card= Container(
       height: height,
       width: width,
-      margin: EdgeInsets.all(margin),
+      margin: EdgeInsets.only(
+        top: margin,
+        bottom: margin,
+        left: 10,
+        right: 10
+      ),
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,

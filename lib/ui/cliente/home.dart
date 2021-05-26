@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hawkvirtualfood_proyecto/ui/cliente/home_fragment.dart';
+import 'package:hawkvirtualfood_proyecto/ui/cliente/menu_fragment.dart';
+import 'package:hawkvirtualfood_proyecto/ui/cliente/profile_fragment.dart';
+import 'package:hawkvirtualfood_proyecto/ui/cliente/search_fragment.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,11 +12,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int indexTap=0;
 
-  /*final List<Widget> widgetsChildren=[
-    HomeTrips(),
-    SearchTrips(),
-    ProfileTrips()
-  ];*/
+  final List<Widget> widgetsChildren=[
+    HomeFragment(),
+    SearchFragment(),
+    MenuFragment(),
+    ProfileFragment()
+  ];
 
 
 
@@ -27,7 +31,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     final menuBarBotton= BottomNavigationBar(
-      selectedItemColor: Colors.brown,
+      selectedItemColor: Colors.cyanAccent,
       unselectedItemColor: Colors.white,
       onTap: onTapTapped,
       currentIndex: indexTap,
@@ -52,23 +56,23 @@ class _HomeState extends State<Home> {
         BottomNavigationBarItem(
           icon: Icon(Icons.search),
           label: "Buscar",
-          backgroundColor: Colors.green,
+          backgroundColor: Color(0xFF282828),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.book),
           label: "Menu",
-          backgroundColor: Colors.red,
+          backgroundColor: Color(0xFF282828),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: "Perfil",
-          backgroundColor: Colors.blue,
+          backgroundColor: Color(0xFF282828),
         ),
       ],
     );
 
     return Scaffold(
-      body: HomeFragment(),
+      body: widgetsChildren[indexTap],
       bottomNavigationBar: menuBarBotton
     );
   }

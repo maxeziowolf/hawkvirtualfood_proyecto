@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hawkvirtualfood_proyecto/ui/widgets/card_image.dart';
+import 'package:hawkvirtualfood_proyecto/ui/widgets/card_platillo.dart';
 import 'package:hawkvirtualfood_proyecto/ui/widgets/gradient_back.dart';
 
 class HomeFragment extends StatefulWidget {
@@ -9,31 +10,52 @@ class HomeFragment extends StatefulWidget {
 
 class _HomeFragmentState extends State<HomeFragment> {
 
-  final titulo=Container(
-    child: Text(
-      "Los platillos mas populares",
-      style: TextStyle(
-        color: Color(0xFF6A6A6A),
-        fontWeight: FontWeight.bold,
-        fontSize: 15,
-        fontFamily: 'DancingScript',
-      ),
-    ),
-  );
-
-  final contenido=Column(
-    children: [
-      CardImage("assets/image/banner_promocion.png", 300, 500,20),
-    ],
-  );
 
   @override
   Widget build(BuildContext context) {
+    final titulo=Container(
+      child: Text(
+        "Los platillos mas populares",
+        style: TextStyle(
+          color: Color(0xFF000000),
+          fontWeight: FontWeight.bold,
+          fontSize:30,
+          fontFamily: 'DancingScript',
+        ),
+      ),
+    );
+
+    final platillos = Container(
+      margin: EdgeInsets.only(
+        top: 250,
+        left: 20,
+        right: 20
+      ),
+      child: ListView(
+        children: [
+          CardPlatillos(),
+          CardPlatillos(),
+          CardPlatillos(),
+          CardPlatillos(),
+          CardPlatillos(),
+          CardPlatillos(),
+        ],
+      ),
+    );
+
+    final contenido=Column(
+      children: [
+        CardImage("assets/image/banner_promocion.png", 150, 500,30),
+        titulo,
+      ],
+    );
+
     return Container(
       child: Stack(
         children: [
           GradientBack(),
-          contenido
+          contenido,
+          platillos
         ],
       ),
     );
